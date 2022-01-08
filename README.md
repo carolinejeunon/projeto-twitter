@@ -96,8 +96,7 @@ Este projeto teve o intuido de nos aprofundar mais no CRUD e também praticarmos
 com o que o mercado utiliza. Quaisquer dúvida ou sugestão de melhoria, fique a vontade de criar uma Issue aqui neste Github.
 
 
--> a fazer: colocar as novas rotas
--> ver se as tabelas estã ok
 -> deploy heroku
--> testes Jest
+-> testes Jest (opcional)
 -> terminar README
+-> melhorar o swagger (vide github do Paulo Salvatore)
