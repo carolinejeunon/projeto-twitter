@@ -3,7 +3,7 @@ import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { CreateUsuarioDto } from './dto/create-usuario.dto';
 import { UpdateUsuarioDto } from './dto/update-usuario.dto';
 import { PrismaService } from '../prisma/prisma.service';
-import { Usuario } from '@prisma/client';
+import { Prisma, Usuario } from '@prisma/client';
 import * as bcrypt from 'bcrypt'
 import { JwtPayload } from 'src/auth/jwt.strategy';
 import { LoginDto } from 'src/auth/dto/login.dto';
@@ -13,16 +13,14 @@ export class UsuarioService {
   constructor(private readonly prisma: PrismaService) {}
 
   //usando bcrypt para embaralhar a senha que vai pro banco
-  async create(createUsuarioDto: CreateUsuarioDto): Promise<Usuario> {
-    createUsuarioDto.senha = await bcrypt.hash(createUsuarioDto.senha, 10);
-    return await this.prisma.usuario.create({
-      data: {...createUsuarioDto}
-  });
+  async create(data: Prisma.UsuarioCreateInput): Promise<Usuario> {
+    data.senha = await bcrypt.hash(data.senha, 10);
+    return await this.prisma.usuario.create({data: data});
   }
 
   //usando a função findByLogin para encontrar o primeiro email que bater com o email digitado
   async findByLogin(login: LoginDto): Promise<Usuario> {
-    const user = await this.prisma.usuario.findFirst({
+    const user = await this.prisma.usuario.findFirst({ //construindo o usuário por uma consulta no banco de dados
       where: { 
         email: login.email,
       },

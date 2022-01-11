@@ -10,8 +10,8 @@ export class SeguindoService {
   constructor(private readonly prisma: PrismaService) {}
 
   async create(createSeguindoDto: CreateSeguindoDto): Promise<Seguindo> {
-    return await this.prisma.seguindo.create({
-      data: {...createSeguindoDto},
+    return await this.prisma.seguindo.create({ 
+      data: { ...createSeguindoDto}
     });
   }
 
