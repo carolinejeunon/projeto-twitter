@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { IsDate, IsNotEmpty, IsString } from "class-validator";
+import { IsDateString, IsNotEmpty, IsString } from "class-validator";
 
 /* eslint-disable prettier/prettier */
 export class CreateUsuarioDto {
@@ -14,8 +14,8 @@ export class CreateUsuarioDto {
     bio: string;
 
     @IsNotEmpty()
-    @IsDate()
-    nascimento: Date;
+    @IsDateString()
+    nascimento: string;
 
     @IsNotEmpty()
     @IsString()
