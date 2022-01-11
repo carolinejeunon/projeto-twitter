@@ -9,6 +9,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.useGlobalPipes(new ValidationPipe());
   app.use(helmet());
+  app.enableCors();
   const config = new DocumentBuilder()
 	.setTitle('Api')
 	.setDescription('Api')
