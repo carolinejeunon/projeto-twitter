@@ -3,8 +3,13 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards } from '@n
 import { SeguindoService } from './seguindo.service';
 import { CreateSeguindoDto } from './dto/create-seguindo.dto';
 import { UpdateSeguindoDto } from './dto/update-seguindo.dto';
+<<<<<<< HEAD
 import { AuthGuard } from '@nestjs/passport';
+=======
+import { ApiTags } from '@nestjs/swagger';
+>>>>>>> 11b00da90a3a977fbd3b2e4c6e13c12bbd13fb1a
 
+@ApiTags('seguindo')
 @Controller('seguindo')
 export class SeguindoController {
   constructor(private readonly seguindoService: SeguindoService) {}

@@ -95,8 +95,4 @@ Igual a rota anterior, só que mostrando quem está seguindo o usuário.
 Este projeto teve o intuido de nos aprofundar mais no CRUD e também praticarmos as validações via JWT, com isso nos capacitando para criar APIs mais seguras e mais alinhadas
 com o que o mercado utiliza. Quaisquer dúvida ou sugestão de melhoria, fique a vontade de criar uma Issue aqui neste Github.
 
-
--> deploy heroku
--> testes Jest (opcional)
--> terminar README
--> melhorar o swagger (vide github do Paulo Salvatore)
+.. continua...

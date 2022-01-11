@@ -3,8 +3,13 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards } from '@n
 import { SeguidoresService } from './seguidores.service';
 import { CreateSeguidoresDto } from './dto/create-seguidores.dto';
 import { UpdateSeguidoresDto } from './dto/update-seguidores.dto';
+<<<<<<< HEAD
 import { AuthGuard } from '@nestjs/passport';
+=======
+import { ApiTags } from '@nestjs/swagger';
+>>>>>>> 11b00da90a3a977fbd3b2e4c6e13c12bbd13fb1a
 
+@ApiTags('seguidores')
 @Controller('seguidores')
 export class SeguidoresController {
   constructor(private readonly seguidoresService: SeguidoresService) {}
