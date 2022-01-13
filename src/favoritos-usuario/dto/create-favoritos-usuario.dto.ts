@@ -4,9 +4,9 @@ import { IsInt, IsNotEmpty } from "class-validator";
 export class CreateFavoritosOnUsuarioDto {
     @IsNotEmpty()
     @IsInt()
-    usuarioId: number;
+    usuarioid: number;
 
     @IsNotEmpty()
     @IsInt()
-    tweetId: number;
+    tweetid: number;
 }
