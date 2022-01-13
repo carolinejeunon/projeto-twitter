@@ -36,11 +36,7 @@ $ npm run start
 
 ## Autenticação
 
-Agora a autenticação terá um token que será gerado ao fazer o primeiro login (após o salvamento de seu login no database) e que terá duração pré definida, conforme configuração no arquivo
-
-`````
-.env.bkp
-````.
+Agora a autenticação terá um token que será gerado ao fazer o primeiro login (após o salvamento de seu login no database) e que terá duração pré definida, conforme configuração no arquivo ".env.bkp".
 
 ## Rotas ##
 
