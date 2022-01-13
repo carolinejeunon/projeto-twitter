@@ -1,4 +1,5 @@
+/* eslint-disable prettier/prettier */
 import { PartialType } from '@nestjs/swagger';
-import { CreateFavoritosUsuarioDto } from './create-favoritos-usuario.dto';
+import { CreateFavoritosOnUsuarioDto } from './create-favoritos-usuario.dto';
 
-export class UpdateFavoritosUsuarioDto extends PartialType(CreateFavoritosUsuarioDto) {}
+export class UpdateFavoritosOnUsuarioDto extends PartialType(CreateFavoritosOnUsuarioDto) {}

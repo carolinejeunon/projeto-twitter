@@ -57,17 +57,17 @@ model Categoria {
 }
 
 model CategoriaOnTweet {
+  id Int @default(autoincrement()) @id
   categoria Categoria @relation(fields: [categoriaId], references: [id])
   categoriaId Int
   tweets Tweet @relation(fields: [tweetId], references: [id])
   tweetId Int
-  @@id([categoriaId, tweetId])
 }
 
 model FavoritosOnUsuario {
+  id Int @default(autoincrement()) @id
   tweets Tweet @relation(fields: [tweetId], references: [id])
   tweetId Int
   usuarios Usuario @relation(fields: [usuarioId], references: [id])
   usuarioId Int
-  @@id([tweetId, usuarioId])
 }
