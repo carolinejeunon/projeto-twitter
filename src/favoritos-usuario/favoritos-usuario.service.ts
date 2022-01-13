@@ -1,26 +1,39 @@
+/* eslint-disable prettier/prettier */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Injectable } from '@nestjs/common';
+import { PrismaService } from 'src/prisma/prisma.service';
 import { CreateFavoritosUsuarioDto } from './dto/create-favoritos-usuario.dto';
 import { UpdateFavoritosUsuarioDto } from './dto/update-favoritos-usuario.dto';
 
 @Injectable()
 export class FavoritosUsuarioService {
-  create(createFavoritosUsuarioDto: CreateFavoritosUsuarioDto) {
-    return 'This action adds a new favoritosUsuario';
+  constructor(private readonly prisma: PrismaService) {}
+
+  async create(createFavoritosUsuarioDto: CreateFavoritosUsuarioDto) {
+    return await this.prisma.favoritosUsuario.create({
+      data: {...createFavoritosUsuarioDto},
+    });
   }
 
-  findAll() {
-    return `This action returns all favoritosUsuario`;
+  async findAll() {
+    return await this.prisma.favoritosUsuario.findMany();  
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} favoritosUsuario`;
+  async findOne(id: number) {
+    return await this.prisma.favoritosUsuario.findUnique({
+      where: {id},
+    });  }
+
+  async update(id: number, updateFavoritosUsuarioDto: UpdateFavoritosUsuarioDto) {
+    return await this.prisma.favoritosUsuario.update({
+      data: {...updateFavoritosUsuarioDto},
+      where: {id},
+    });
   }
 
-  update(id: number, updateFavoritosUsuarioDto: UpdateFavoritosUsuarioDto) {
-    return `This action updates a #${id} favoritosUsuario`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} favoritosUsuario`;
+  async remove(id: number) {
+    return this.prisma.favoritosUsuario.delete({
+      where: {id},
+    });
   }
 }
