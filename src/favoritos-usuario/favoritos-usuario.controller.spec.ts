@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Test, TestingModule } from '@nestjs/testing';
 import { FavoritosUsuarioController } from './favoritos-usuario.controller';
 import { FavoritosUsuarioService } from './favoritos-usuario.service';

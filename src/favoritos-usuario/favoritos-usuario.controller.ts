@@ -1,8 +1,8 @@
 /* eslint-disable prettier/prettier */
 import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards } from '@nestjs/common';
 import { FavoritosUsuarioService } from './favoritos-usuario.service';
-import { CreateFavoritosUsuarioDto } from './dto/create-favoritos-usuario.dto';
-import { UpdateFavoritosUsuarioDto } from './dto/update-favoritos-usuario.dto';
+import { CreateFavoritosOnUsuarioDto } from './dto/create-favoritos-usuario.dto';
+import { UpdateFavoritosOnUsuarioDto } from './dto/update-favoritos-usuario.dto';
 import { AuthGuard } from '@nestjs/passport';
 
 @Controller('favoritos-usuario')
@@ -11,7 +11,7 @@ export class FavoritosUsuarioController {
 
   @Post()
   @UseGuards(AuthGuard('jwt'))
-  create(@Body() createFavoritosUsuarioDto: CreateFavoritosUsuarioDto) {
+  create(@Body() createFavoritosUsuarioDto: CreateFavoritosOnUsuarioDto) {
     return this.favoritosUsuarioService.create(createFavoritosUsuarioDto);
   }
 
@@ -27,7 +27,7 @@ export class FavoritosUsuarioController {
 
   @Patch(':id')
   @UseGuards(AuthGuard('jwt'))
-  update(@Param('id') id: string, @Body() updateFavoritosUsuarioDto: UpdateFavoritosUsuarioDto) {
+  update(@Param('id') id: string, @Body() updateFavoritosUsuarioDto: UpdateFavoritosOnUsuarioDto) {
     return this.favoritosUsuarioService.update(+id, updateFavoritosUsuarioDto);
   }
 

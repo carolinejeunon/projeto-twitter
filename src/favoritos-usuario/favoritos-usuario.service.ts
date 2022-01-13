@@ -2,37 +2,38 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
-import { CreateFavoritosUsuarioDto } from './dto/create-favoritos-usuario.dto';
-import { UpdateFavoritosUsuarioDto } from './dto/update-favoritos-usuario.dto';
+import { CreateFavoritosOnUsuarioDto } from './dto/create-favoritos-usuario.dto';
+import { UpdateFavoritosOnUsuarioDto } from './dto/update-favoritos-usuario.dto';
+import { FavoritosOnUsuario } from '@prisma/client';
 
 @Injectable()
 export class FavoritosUsuarioService {
   constructor(private readonly prisma: PrismaService) {}
 
-  async create(createFavoritosUsuarioDto: CreateFavoritosUsuarioDto) {
-    return await this.prisma.favoritosUsuario.create({
-      data: {...createFavoritosUsuarioDto},
+  async create(createFavoritosOnUsuarioDto: CreateFavoritosOnUsuarioDto): Promise<FavoritosOnUsuario> {
+    return await this.prisma.favoritosOnUsuario.create({
+      data: {...createFavoritosOnUsuarioDto},
     });
   }
 
-  async findAll() {
-    return await this.prisma.favoritosUsuario.findMany();  
+  async findAll(): Promise<FavoritosOnUsuario[]> {
+    return await this.prisma.favoritosOnUsuario.findMany();  
   }
 
-  async findOne(id: number) {
-    return await this.prisma.favoritosUsuario.findUnique({
+  async findOne(id: number): Promise<FavoritosOnUsuario> {
+    return await this.prisma.favoritosOnUsuario.findUnique({
       where: {id},
     });  }
 
-  async update(id: number, updateFavoritosUsuarioDto: UpdateFavoritosUsuarioDto) {
-    return await this.prisma.favoritosUsuario.update({
-      data: {...updateFavoritosUsuarioDto},
+  async update(id: number, updateFavoritosOnUsuarioDto: UpdateFavoritosOnUsuarioDto) {
+    return await this.prisma.favoritosOnUsuario.update({
+      data: {...updateFavoritosOnUsuarioDto},
       where: {id},
     });
   }
 
   async remove(id: number) {
-    return this.prisma.favoritosUsuario.delete({
+    return this.prisma.favoritosOnUsuario.delete({
       where: {id},
     });
   }

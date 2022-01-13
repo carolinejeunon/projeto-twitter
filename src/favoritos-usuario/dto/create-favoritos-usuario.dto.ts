@@ -1,12 +1,12 @@
 /* eslint-disable prettier/prettier */
 import { IsInt, IsNotEmpty } from "class-validator";
 
-export class CreateFavoritosUsuarioDto {
+export class CreateFavoritosOnUsuarioDto {
     @IsNotEmpty()
     @IsInt()
-    usuarioid: number;
+    usuarioId: number;
 
     @IsNotEmpty()
     @IsInt()
-    tweetid: number;
+    tweetId: number;
 }
